@@ -23,6 +23,7 @@ namespace SegundoParcial.UI.Registros
         {
             TallerId_numericUpDown.Value = 0;
             Nombre_textBox.Clear();
+            ValidarErrorProvider.Clear();
         }
 
         private bool Validar()

@@ -33,6 +33,7 @@ namespace SegundoParcial.UI.Registros
             EntradaId_numericUpDown.Value = 0;
             FechaDateTimePicker.ResetText();
             Cantidad_numericUpDown.Value = 0;
+            ValidarErrorProvider.Clear();
 
         }
 
@@ -82,8 +83,8 @@ namespace SegundoParcial.UI.Registros
 
             if (paso)
             {
-                MessageBox.Show("Guardado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Inventario();
+                MessageBox.Show("Guardado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);                
                 NuevoButton.PerformClick();
             }
             else
@@ -105,7 +106,7 @@ namespace SegundoParcial.UI.Registros
                 NuevoButton.PerformClick();
             }
             else
-            MessageBox.Show("No Se Pudo Eliminar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No Se Pudo Eliminar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -129,8 +130,8 @@ namespace SegundoParcial.UI.Registros
         {
             Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());           
             Articulos articulo = (Articulos)Articulo_comboBox.SelectedItem;
-            articulo.Inventario = (int)Cantidad_numericUpDown.Value;
-            repositorio.Modificar(articulo);  
+            articulo.Inventario += (int)Cantidad_numericUpDown.Value;
+            repositorio.Modificar(articulo);   
         }
 
 

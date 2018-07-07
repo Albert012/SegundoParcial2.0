@@ -24,6 +24,7 @@ namespace SegundoParcial.UI.Registros
             VehiculoId_numericUpDown.Value = 0;
             Descripcion_textBox.Clear();
             Mantenimiento_numericUpDown.Value = 0;
+            ValidarErrorProvider.Clear();
         }
 
         private bool Validar()

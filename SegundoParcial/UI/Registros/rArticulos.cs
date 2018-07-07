@@ -27,6 +27,7 @@ namespace SegundoParcial.UI.Registros
             Precio_numericUpDown.Value = 0;
             Ganancia_numericUpDown.Value = 0;
             Inventario_numericUpDown.Value = 0;
+            ValidarErrorProvider.Clear();
         }
         private bool Validar()
         {
@@ -85,9 +86,9 @@ namespace SegundoParcial.UI.Registros
                 paso = repositorio.Modificar(articulo);
 
             if (paso)
-            {
-                NuevoButton.PerformClick();
+            {                
                 MessageBox.Show("Guardado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                NuevoButton.PerformClick();
 
             }
             else
@@ -135,16 +136,23 @@ namespace SegundoParcial.UI.Registros
         {
             
             
-        }
+        }       
 
         private void Precio_numericUpDown_ValueChanged(object sender, EventArgs e)
         {
             
+            if (Costo_numericUpDown.Value != 0)
+            {
+                Ganancia_numericUpDown.Value = BLL.CalculosBLL.CalcularGanancias(Precio_numericUpDown.Value, Costo_numericUpDown.Value);
+            }
         }
 
         private void Ganancia_numericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            
+            if (Precio_numericUpDown.Value != 0)
+            {
+                Ganancia_numericUpDown.Value = BLL.CalculosBLL.CalcularGanancias(Precio_numericUpDown.Value, Costo_numericUpDown.Value);
+            }
 
 
         }

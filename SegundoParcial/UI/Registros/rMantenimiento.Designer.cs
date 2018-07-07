@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@
             this.GuardarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
+            this.ValidarErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).BeginInit();
@@ -72,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SubTotalNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidarErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -236,6 +239,7 @@
             this.CantidadNumericUpDown.Name = "CantidadNumericUpDown";
             this.CantidadNumericUpDown.Size = new System.Drawing.Size(83, 21);
             this.CantidadNumericUpDown.TabIndex = 16;
+            this.CantidadNumericUpDown.ValueChanged += new System.EventHandler(this.CantidadNumericUpDown_ValueChanged);
             // 
             // PrecioNumericUpDown
             // 
@@ -253,6 +257,7 @@
             // 
             // ImporteNumericUpDown
             // 
+            this.ImporteNumericUpDown.Enabled = false;
             this.ImporteNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImporteNumericUpDown.Location = new System.Drawing.Point(427, 41);
             this.ImporteNumericUpDown.Maximum = new decimal(new int[] {
@@ -350,6 +355,7 @@
             this.RemoverButton.Size = new System.Drawing.Size(31, 27);
             this.RemoverButton.TabIndex = 21;
             this.RemoverButton.UseVisualStyleBackColor = true;
+            this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
             // 
             // AgregarButton
             // 
@@ -359,6 +365,7 @@
             this.AgregarButton.Size = new System.Drawing.Size(31, 29);
             this.AgregarButton.TabIndex = 20;
             this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
             // DetalleDataGridView
             // 
@@ -389,6 +396,7 @@
             this.EliminarButton.Size = new System.Drawing.Size(60, 43);
             this.EliminarButton.TabIndex = 2;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // GuardarButton
             // 
@@ -398,6 +406,7 @@
             this.GuardarButton.Size = new System.Drawing.Size(56, 44);
             this.GuardarButton.TabIndex = 1;
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // NuevoButton
             // 
@@ -407,6 +416,7 @@
             this.NuevoButton.Size = new System.Drawing.Size(50, 44);
             this.NuevoButton.TabIndex = 0;
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // BuscarButton
             // 
@@ -416,6 +426,11 @@
             this.BuscarButton.Size = new System.Drawing.Size(38, 31);
             this.BuscarButton.TabIndex = 21;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
+            // 
+            // ValidarErrorProvider
+            // 
+            this.ValidarErrorProvider.ContainerControl = this;
             // 
             // rMantenimiento
             // 
@@ -441,6 +456,7 @@
             this.Name = "rMantenimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Mantenimiento";
+            this.Load += new System.EventHandler(this.rMantenimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).EndInit();
@@ -452,6 +468,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SubTotalNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleDataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ValidarErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +510,6 @@
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.Button BuscarButton;
+        private System.Windows.Forms.ErrorProvider ValidarErrorProvider;
     }
 }

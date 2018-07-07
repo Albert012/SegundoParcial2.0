@@ -13,6 +13,10 @@ namespace SegundoParcial.BLL
         bool Eliminar(int id);
         A Buscar(int id);
         List<A> GetList(Expression<Func<A, bool>> expression);
-       
+        //Decimal CalcularImporte(Decimal cantidad, Decimal precio);
+        //Decimal CalcularSubTotal(Decimal importe);
+        //Decimal CalcularItbis(Decimal subtotal);
+        //Decimal CalcularTotal(Decimal subtotal, Decimal itbis);
+
     }
 }

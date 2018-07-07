@@ -14,22 +14,17 @@ namespace SegundoParcial.Entidades
         public string Articulo { get; set; }
         public DateTime Fecha { get; set; }
         public int Cantidad { get; set; }
-
-        //[ForeignKey("ArticuloId")]
-        //public virtual Articulos Articulo { get; set; }
-
-
-        public virtual ICollection<EntradasDetalle> Detalle { get; set; }
+        
 
         public EntradasArticulos()
         {
-            this.Detalle = new List<EntradasDetalle>();
+            EntradaId = 0;
+            Articulo = string.Empty;
+            Fecha = DateTime.Now;
+            Cantidad = 0;
         }
 
-        public void AgregarInventario(int id, int entradaId, int articuloId, int cantidad)
-        {
-            this.Detalle.Add(new EntradasDetalle(id, entradaId, articuloId, cantidad));
-        }
+      
 
 
 
