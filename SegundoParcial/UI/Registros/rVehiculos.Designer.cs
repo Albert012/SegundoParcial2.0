@@ -120,7 +120,7 @@
             this.GuardarButton.Location = new System.Drawing.Point(80, 28);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(55, 49);
-            this.GuardarButton.TabIndex = 1;
+            this.GuardarButton.TabIndex = 0;
             this.GuardarButton.UseVisualStyleBackColor = true;
             this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
@@ -130,7 +130,7 @@
             this.NuevoButton.Location = new System.Drawing.Point(14, 28);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(50, 49);
-            this.NuevoButton.TabIndex = 0;
+            this.NuevoButton.TabIndex = 1;
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
@@ -139,7 +139,7 @@
             this.Descripcion_textBox.Location = new System.Drawing.Point(132, 64);
             this.Descripcion_textBox.Name = "Descripcion_textBox";
             this.Descripcion_textBox.Size = new System.Drawing.Size(271, 20);
-            this.Descripcion_textBox.TabIndex = 5;
+            this.Descripcion_textBox.TabIndex = 0;
             // 
             // VehiculoId_numericUpDown
             // 

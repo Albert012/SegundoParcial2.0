@@ -153,6 +153,7 @@ namespace SegundoParcial.UI.Registros
             {
                 Ganancia_numericUpDown.Value = BLL.CalculosBLL.CalcularGanancias(Precio_numericUpDown.Value, Costo_numericUpDown.Value);
             }
+            
 
 
         }

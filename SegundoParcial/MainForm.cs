@@ -1,4 +1,5 @@
-﻿using SegundoParcial.UI.Registros;
+﻿using SegundoParcial.UI.Consultas;
+using SegundoParcial.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,6 +56,42 @@ namespace SegundoParcial
             rMantenimiento mantenimiento = new rMantenimiento();
             mantenimiento.MdiParent = this.MdiParent;
             mantenimiento.Show();
+        }
+
+        private void articulosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cArticulos arti = new cArticulos();
+            arti.MdiParent = this.MdiParent;
+            arti.Show();
+
+        }
+
+        private void entradasArticulosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cEntradasArticulos entrada = new cEntradasArticulos();
+            entrada.MdiParent = this.MdiParent;
+            entrada.Show();
+        }
+
+        private void talleresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cTalleres taller = new cTalleres();
+            taller.MdiParent = this.MdiParent;
+            taller.Show();
+        }
+
+        private void vehiculosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cVehiculos vehiculo = new cVehiculos();
+            vehiculo.MdiParent = this.MdiParent;
+            vehiculo.Show();
+        }
+
+        private void mantenimientoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cMantenimiento mant = new cMantenimiento();
+            mant.MdiParent = this.MdiParent;
+            mant.Show();
         }
     }
 }

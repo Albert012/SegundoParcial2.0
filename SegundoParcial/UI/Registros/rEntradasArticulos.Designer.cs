@@ -114,7 +114,7 @@
             this.Articulo_comboBox.Location = new System.Drawing.Point(122, 106);
             this.Articulo_comboBox.Name = "Articulo_comboBox";
             this.Articulo_comboBox.Size = new System.Drawing.Size(202, 21);
-            this.Articulo_comboBox.TabIndex = 6;
+            this.Articulo_comboBox.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -145,7 +145,7 @@
             this.GuardarButton.Location = new System.Drawing.Point(66, 21);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(59, 49);
-            this.GuardarButton.TabIndex = 1;
+            this.GuardarButton.TabIndex = 0;
             this.GuardarButton.UseVisualStyleBackColor = true;
             this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
@@ -155,7 +155,7 @@
             this.NuevoButton.Location = new System.Drawing.Point(10, 21);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(50, 49);
-            this.NuevoButton.TabIndex = 0;
+            this.NuevoButton.TabIndex = 1;
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
@@ -175,7 +175,7 @@
             this.Cantidad_numericUpDown.Location = new System.Drawing.Point(122, 150);
             this.Cantidad_numericUpDown.Name = "Cantidad_numericUpDown";
             this.Cantidad_numericUpDown.Size = new System.Drawing.Size(103, 20);
-            this.Cantidad_numericUpDown.TabIndex = 9;
+            this.Cantidad_numericUpDown.TabIndex = 1;
             // 
             // rEntradasArticulos
             // 

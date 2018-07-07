@@ -298,10 +298,17 @@
             // 
             // TotalNumericUpDown
             // 
+            this.TotalNumericUpDown.Enabled = false;
             this.TotalNumericUpDown.Location = new System.Drawing.Point(427, 367);
+            this.TotalNumericUpDown.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.TotalNumericUpDown.Name = "TotalNumericUpDown";
             this.TotalNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.TotalNumericUpDown.TabIndex = 27;
+            this.TotalNumericUpDown.ValueChanged += new System.EventHandler(this.TotalNumericUpDown_ValueChanged);
             // 
             // label13
             // 
@@ -315,10 +322,17 @@
             // 
             // ITBISNumericUpDown
             // 
+            this.ITBISNumericUpDown.Enabled = false;
             this.ITBISNumericUpDown.Location = new System.Drawing.Point(427, 339);
+            this.ITBISNumericUpDown.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.ITBISNumericUpDown.Name = "ITBISNumericUpDown";
             this.ITBISNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.ITBISNumericUpDown.TabIndex = 25;
+            this.ITBISNumericUpDown.ValueChanged += new System.EventHandler(this.ITBISNumericUpDown_ValueChanged);
             // 
             // label12
             // 
@@ -332,10 +346,17 @@
             // 
             // SubTotalNumericUpDown
             // 
+            this.SubTotalNumericUpDown.Enabled = false;
             this.SubTotalNumericUpDown.Location = new System.Drawing.Point(427, 311);
+            this.SubTotalNumericUpDown.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.SubTotalNumericUpDown.Name = "SubTotalNumericUpDown";
             this.SubTotalNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.SubTotalNumericUpDown.TabIndex = 23;
+            this.SubTotalNumericUpDown.ValueChanged += new System.EventHandler(this.SubTotalNumericUpDown_ValueChanged);
             // 
             // label11
             // 

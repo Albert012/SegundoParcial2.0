@@ -9,6 +9,8 @@ namespace SegundoParcial.Entidades
     {
         public int MantenimientoId { get; set; }
         public DateTime Fecha { get; set; }
+        public Decimal SubTotal { get; set; }
+        public Decimal Itbis { get; set; }
         public Decimal  Total { get; set; }
 
         public virtual ICollection<MantenimientosDetalle> Detalle { get; set; }
@@ -18,9 +20,11 @@ namespace SegundoParcial.Entidades
             this.Detalle = new List<MantenimientosDetalle>();
         }
 
-        public void AgregarDetalle(int id, int mantenimientoId, int vehiculoId, int tallerId, int articuloId, int cantidad, decimal precio, decimal importe)
+
+        public void AgregarDetalle(int id, int mantenimientoId, int vehiculoId, int tallerId, int articuloId, int cantidad, decimal precio, decimal importe, decimal total)
         {
-            this.Detalle.Add(new MantenimientosDetalle(id, mantenimientoId, vehiculoId, tallerId, articuloId, cantidad, precio, importe));
+            this.Detalle.Add(new MantenimientosDetalle(id, mantenimientoId, vehiculoId, tallerId, articuloId, cantidad, precio, importe, total));
         }
+
     }
 }

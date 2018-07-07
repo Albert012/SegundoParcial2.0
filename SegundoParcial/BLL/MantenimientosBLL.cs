@@ -21,13 +21,14 @@ namespace SegundoParcial.BLL
                     foreach (var item in mantenimiento.Detalle)
                     {
                         contexto.Vehiculos.Find(item.VehiculoId).Mantenimiento += (int)item.Total;
-                    }
-
-                    foreach (var item in mantenimiento.Detalle)
-                    {
                         contexto.Articulos.Find(item.ArticuloId).Inventario -= item.Cantidad;
-
                     }
+
+                    //foreach (var item in mantenimiento.Detalle)
+                    //{
+                    //    contexto.Articulos.Find(item.ArticuloId).Inventario -= item.Cantidad;
+
+                    //}
 
                     contexto.SaveChanges();
                     paso = true;

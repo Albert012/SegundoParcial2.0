@@ -32,7 +32,7 @@ namespace SegundoParcial.Entidades
                 
         }
 
-        public MantenimientosDetalle(int id, int mantenimientoId, int vehiculoId, int tallerId, int articuloId, int cantidad, decimal precio, decimal importe)
+        public MantenimientosDetalle(int id, int mantenimientoId, int vehiculoId, int tallerId, int articuloId, int cantidad, decimal precio, decimal importe, decimal total)
         {
             Id = id;
             MantenimientoId = mantenimientoId;
@@ -42,6 +42,7 @@ namespace SegundoParcial.Entidades
             Cantidad = cantidad;
             Precio = precio;
             Importe = importe;
+            Total = total;
         }
     }
 }

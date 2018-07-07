@@ -133,7 +133,7 @@
             0});
             this.Costo_numericUpDown.Name = "Costo_numericUpDown";
             this.Costo_numericUpDown.Size = new System.Drawing.Size(106, 20);
-            this.Costo_numericUpDown.TabIndex = 7;
+            this.Costo_numericUpDown.TabIndex = 1;
             this.Costo_numericUpDown.ValueChanged += new System.EventHandler(this.Costo_numericUpDown_ValueChanged);
             // 
             // Precio_numericUpDown
@@ -146,7 +146,7 @@
             0});
             this.Precio_numericUpDown.Name = "Precio_numericUpDown";
             this.Precio_numericUpDown.Size = new System.Drawing.Size(106, 20);
-            this.Precio_numericUpDown.TabIndex = 8;
+            this.Precio_numericUpDown.TabIndex = 2;
             this.Precio_numericUpDown.ValueChanged += new System.EventHandler(this.Precio_numericUpDown_ValueChanged);
             // 
             // Ganancia_numericUpDown
@@ -154,7 +154,7 @@
             this.Ganancia_numericUpDown.Location = new System.Drawing.Point(326, 89);
             this.Ganancia_numericUpDown.Name = "Ganancia_numericUpDown";
             this.Ganancia_numericUpDown.Size = new System.Drawing.Size(96, 20);
-            this.Ganancia_numericUpDown.TabIndex = 9;
+            this.Ganancia_numericUpDown.TabIndex = 3;
             this.Ganancia_numericUpDown.ValueChanged += new System.EventHandler(this.Ganancia_numericUpDown_ValueChanged);
             // 
             // Inventario_numericUpDown
@@ -170,7 +170,7 @@
             this.Descripcion_textBox.Location = new System.Drawing.Point(115, 58);
             this.Descripcion_textBox.Name = "Descripcion_textBox";
             this.Descripcion_textBox.Size = new System.Drawing.Size(307, 20);
-            this.Descripcion_textBox.TabIndex = 11;
+            this.Descripcion_textBox.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -201,7 +201,7 @@
             this.GuardarButton.Location = new System.Drawing.Point(70, 21);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(56, 48);
-            this.GuardarButton.TabIndex = 1;
+            this.GuardarButton.TabIndex = 0;
             this.GuardarButton.UseVisualStyleBackColor = true;
             this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
@@ -211,7 +211,7 @@
             this.NuevoButton.Location = new System.Drawing.Point(13, 21);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(49, 48);
-            this.NuevoButton.TabIndex = 0;
+            this.NuevoButton.TabIndex = 1;
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
