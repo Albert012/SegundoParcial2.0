@@ -93,5 +93,10 @@ namespace SegundoParcial
             mant.MdiParent = this.MdiParent;
             mant.Show();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Segundo Parcial 2.0, Albert De Jesus Rosario, Esta Es Una Prueba De Mantenimientos A Un Vehiculo ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

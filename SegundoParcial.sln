@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegundoParcial", "SegundoParcial\SegundoParcial.csproj", "{B26E6E2B-286C-4266-8E00-21CE32B94872}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegundoParcialTests", "SegundoParcialTests\SegundoParcialTests.csproj", "{DE5F054F-B034-4757-A529-46FD862CE5E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B26E6E2B-286C-4266-8E00-21CE32B94872}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B26E6E2B-286C-4266-8E00-21CE32B94872}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B26E6E2B-286C-4266-8E00-21CE32B94872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5F054F-B034-4757-A529-46FD862CE5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5F054F-B034-4757-A529-46FD862CE5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5F054F-B034-4757-A529-46FD862CE5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5F054F-B034-4757-A529-46FD862CE5E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

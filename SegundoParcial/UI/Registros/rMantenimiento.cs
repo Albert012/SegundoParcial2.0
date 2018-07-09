@@ -109,16 +109,17 @@ namespace SegundoParcial.UI.Registros
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             Repositorio<Mantenimiento> repositorio = new Repositorio<Mantenimiento>(new Contexto());
-
             int id = (int)IdnumericUpDown.Value;
+            
             if (repositorio.Eliminar(id))
             {
+                
                 MessageBox.Show("Eliminado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 NuevoButton.PerformClick();
             }
             else
                 MessageBox.Show("NO Se Pudo Eliminar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)

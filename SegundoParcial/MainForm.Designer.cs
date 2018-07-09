@@ -42,9 +42,9 @@
             this.entradasArticulosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.talleresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiculosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenimientoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,6 +163,13 @@
             this.vehiculosToolStripMenuItem1.Text = "Vehiculos";
             this.vehiculosToolStripMenuItem1.Click += new System.EventHandler(this.vehiculosToolStripMenuItem1_Click);
             // 
+            // mantenimientoToolStripMenuItem1
+            // 
+            this.mantenimientoToolStripMenuItem1.Name = "mantenimientoToolStripMenuItem1";
+            this.mantenimientoToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.mantenimientoToolStripMenuItem1.Text = "Mantenimiento";
+            this.mantenimientoToolStripMenuItem1.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem1_Click);
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -174,15 +181,9 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // mantenimientoToolStripMenuItem1
-            // 
-            this.mantenimientoToolStripMenuItem1.Name = "mantenimientoToolStripMenuItem1";
-            this.mantenimientoToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
-            this.mantenimientoToolStripMenuItem1.Text = "Mantenimiento";
-            this.mantenimientoToolStripMenuItem1.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem1_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // MainForm
             // 
