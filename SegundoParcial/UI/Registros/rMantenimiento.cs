@@ -174,14 +174,16 @@ namespace SegundoParcial.UI.Registros
                 List<MantenimientosDetalle> detail = (List<MantenimientosDetalle>)DetalleDataGridView.DataSource;
 
                 detail.RemoveAt(DetalleDataGridView.CurrentRow.Index);
+                
                 DetalleDataGridView.DataSource = null;
                 QuitarInventario();
                 QuitarTotalMantenimienot();
                 DetalleDataGridView.DataSource = detail;
+
             }
 
         }
-
+        
         private void Meses()
         {
             ProximoDateTimePicker.Value = FechaDateTimePicker.Value.AddMonths(3);
@@ -200,8 +202,6 @@ namespace SegundoParcial.UI.Registros
             VehiculoComboBox.DataSource = vehiculo.GetList(v => true);
             VehiculoComboBox.ValueMember = "VehiculoId";
             VehiculoComboBox.DisplayMember = "Descripcion";
-
-
 
             ArticuloComboBox.DataSource = articulo.GetList(a => true);
             ArticuloComboBox.ValueMember = "ArticuloId";
@@ -231,7 +231,7 @@ namespace SegundoParcial.UI.Registros
             Mantenimiento mantenimiento = new Mantenimiento();
 
             mantenimiento.MantenimientoId = (int)IdnumericUpDown.Value;
-            mantenimiento.Fecha = FechaDateTimePicker.Value.Date;
+            mantenimiento.Fecha = ProximoDateTimePicker.Value.Date;
             mantenimiento.SubTotal = SubTotalNumericUpDown.Value;
             mantenimiento.Itbis = ITBISNumericUpDown.Value;
             mantenimiento.Total = TotalNumericUpDown.Value;
@@ -262,8 +262,9 @@ namespace SegundoParcial.UI.Registros
 
         private void LlenaCampos(Mantenimiento mantenimiento)
         {
+            
             IdnumericUpDown.Value = mantenimiento.MantenimientoId;
-            FechaDateTimePicker.Value = mantenimiento.Fecha;
+            FechaDateTimePicker.Value = mantenimiento.Fecha;            
             SubTotalNumericUpDown.Value = mantenimiento.SubTotal;
             ITBISNumericUpDown.Value = mantenimiento.Itbis;
             TotalNumericUpDown.Value = mantenimiento.Total;

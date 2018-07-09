@@ -152,6 +152,11 @@
             // 
             this.Mantenimiento_numericUpDown.Enabled = false;
             this.Mantenimiento_numericUpDown.Location = new System.Drawing.Point(132, 102);
+            this.Mantenimiento_numericUpDown.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.Mantenimiento_numericUpDown.Name = "Mantenimiento_numericUpDown";
             this.Mantenimiento_numericUpDown.Size = new System.Drawing.Size(120, 20);
             this.Mantenimiento_numericUpDown.TabIndex = 7;

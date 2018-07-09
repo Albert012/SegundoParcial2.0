@@ -144,7 +144,7 @@ namespace SegundoParcial.UI.Registros
             if (Costo_numericUpDown.Value != 0)
             {
                 Ganancia_numericUpDown.Value = BLL.CalculosBLL.CalcularGanancias(Precio_numericUpDown.Value, Costo_numericUpDown.Value);
-            }
+            }           
         }
 
         private void Ganancia_numericUpDown_ValueChanged(object sender, EventArgs e)
@@ -152,7 +152,11 @@ namespace SegundoParcial.UI.Registros
             if (Precio_numericUpDown.Value != 0)
             {
                 Ganancia_numericUpDown.Value = BLL.CalculosBLL.CalcularGanancias(Precio_numericUpDown.Value, Costo_numericUpDown.Value);
+                
             }
+            
+
+               
             
 
 
