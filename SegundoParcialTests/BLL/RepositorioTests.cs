@@ -66,13 +66,18 @@ namespace SegundoParcial.BLL.Tests
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
+            Articulos articulos = new Articulos();
+            articulos = repositorio.Buscar(2);
+            Assert.IsNotNull(articulos);
         }
 
         [TestMethod()]
         public void GetListTest()
         {
-            Assert.Fail();
+            Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
+            var articulos = repositorio.GetList(a => true);
+            Assert.IsNotNull(articulos);
         }
 
         [TestMethod()]
