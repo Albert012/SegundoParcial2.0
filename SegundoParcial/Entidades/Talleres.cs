@@ -19,6 +19,10 @@ namespace SegundoParcial.Entidades
         
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
 
     }
 }

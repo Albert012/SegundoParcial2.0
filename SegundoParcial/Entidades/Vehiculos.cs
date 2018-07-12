@@ -21,5 +21,10 @@ namespace SegundoParcial.Entidades
             Mantenimiento = 0;
         }
 
+        public override string ToString()
+        {
+            return Descripcion;
+        }
+
     }
 }

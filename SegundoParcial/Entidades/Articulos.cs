@@ -31,6 +31,9 @@ namespace SegundoParcial.Entidades
             //this.Entrada = new HashSet<EntradasArticulos>();
         }
 
-
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

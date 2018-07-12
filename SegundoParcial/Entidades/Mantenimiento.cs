@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace SegundoParcial.Entidades
 {
     public class Mantenimiento
     {
+        [Key]
         public int MantenimientoId { get; set; }
         public DateTime Fecha { get; set; }
         public Decimal SubTotal { get; set; }

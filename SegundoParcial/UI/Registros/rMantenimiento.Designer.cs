@@ -401,6 +401,7 @@
             this.DetalleDataGridView.Name = "DetalleDataGridView";
             this.DetalleDataGridView.Size = new System.Drawing.Size(599, 208);
             this.DetalleDataGridView.TabIndex = 19;
+            this.DetalleDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DetalleDataGridView_CellContentClick);
             // 
             // groupBox2
             // 

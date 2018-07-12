@@ -302,6 +302,8 @@ namespace SegundoParcial.UI.Registros
                     ToInt(item.Cells["Importe"].Value)
                     );
             }
+            
+
             return mantenimiento;
         }
 
@@ -328,6 +330,8 @@ namespace SegundoParcial.UI.Registros
             DetalleDataGridView.Columns["VehiculoId"].Visible = false;
             DetalleDataGridView.Columns["TallerId"].Visible = false;
             DetalleDataGridView.Columns["ArticuloId"].Visible = false;
+           // DetalleDataGridView.Columns["Vehiculo"].Visible = false;
+           // DetalleDataGridView.Columns["Articulo"].Visible = false;
 
         }
 
@@ -395,6 +399,14 @@ namespace SegundoParcial.UI.Registros
         private void TotalNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             //Total();
+        }
+
+        private void DetalleDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //foreach (DataGridView item in DetalleDataGridView.Rows)
+            //{
+
+            //}
         }
     }
 }
