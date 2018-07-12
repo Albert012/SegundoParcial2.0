@@ -71,7 +71,8 @@ namespace SegundoParcial.UI.Registros
         {
             Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
             bool paso = false;
-            Articulos articulo;
+            int id = (int)ArticuloId_numericUpDown.Value;
+            Articulos articulo = repositorio.Buscar(id);
 
             if(Validar())
             {
@@ -80,7 +81,9 @@ namespace SegundoParcial.UI.Registros
             }
 
             articulo = LLenaClase();
-            if (ArticuloId_numericUpDown.Value == 0)
+                        
+
+            if (articulo != null)
                 paso = repositorio.Guardar(articulo);
             else
                 paso = repositorio.Modificar(articulo);
@@ -140,25 +143,23 @@ namespace SegundoParcial.UI.Registros
 
         private void Precio_numericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            
-            if (Costo_numericUpDown.Value != 0)
+            if(Costo_numericUpDown.Value != 0)
             {
                 Ganancia_numericUpDown.Value = BLL.CalculosBLL.CalcularGanancias(Precio_numericUpDown.Value, Costo_numericUpDown.Value);
-            }           
+
+            }
+
         }
 
         private void Ganancia_numericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (Precio_numericUpDown.Value != 0)
+            if (Ganancia_numericUpDown.Value > 100)
             {
-                Ganancia_numericUpDown.Value = BLL.CalculosBLL.CalcularGanancias(Precio_numericUpDown.Value, Costo_numericUpDown.Value);
-                
+                ValidarErrorProvider.SetError(Ganancia_numericUpDown, "No Se Puede Exceder Del 100%");
+                return;
             }
-            
-
-               
-            
-
+            else
+                Precio_numericUpDown.Value = BLL.CalculosBLL.CalcularPrecio(Costo_numericUpDown.Value, Ganancia_numericUpDown.Value);
 
         }
     }

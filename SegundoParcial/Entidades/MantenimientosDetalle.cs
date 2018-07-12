@@ -18,6 +18,7 @@ namespace SegundoParcial.Entidades
         public Decimal Importe { get; set; }
         public Decimal Total { get; set; }
 
+
         [ForeignKey("VehiculoId")]
         public virtual Vehiculos Vehiculo { get; set; }
 

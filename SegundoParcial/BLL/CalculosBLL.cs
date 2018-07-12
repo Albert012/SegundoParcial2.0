@@ -12,6 +12,14 @@ namespace SegundoParcial.BLL
             return (((precio - costo) / costo) * 100);
         }
 
+        public static Decimal CalcularPrecio(Decimal costo, Decimal ganancia)
+        {
+            ganancia /= 100;
+            ganancia *= costo;
+            return costo + ganancia;
+            //return (costo * (100/(100-ganancia)));
+        }
+
         public static Decimal CalcularImporte(Decimal cantidad, Decimal precio)
         {
             return cantidad * precio;

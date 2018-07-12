@@ -55,7 +55,8 @@ namespace SegundoParcial.UI.Registros
         {
             bool paso = false;
             Repositorio<Vehiculos> repositorio = new Repositorio<Vehiculos>(new Contexto());
-            Vehiculos vehiculo;
+            int id = (int)VehiculoId_numericUpDown.Value;
+            Vehiculos vehiculo = repositorio.Buscar(id);
 
             if(Validar())
             {
@@ -65,7 +66,7 @@ namespace SegundoParcial.UI.Registros
 
             vehiculo = LlenaClase();
 
-            if (VehiculoId_numericUpDown.Value == 0)
+            if (vehiculo != null)
                 paso = repositorio.Guardar(vehiculo);
             else
                 paso = repositorio.Modificar(vehiculo);

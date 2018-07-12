@@ -33,9 +33,9 @@ namespace SegundoParcial.UI.Consultas
                     id = Convert.ToInt32(CriterioTextBox.Text);
                     filtro = a => (a.EntradaId == id) && (a.Fecha >= DesdeDateTimePicker.Value && a.Fecha <= HastaDateTimePicker.Value);
                     break;
-                case 2://Descripcion
-                    filtro = a => (a.Articulo.Contains(CriterioTextBox.Text)) && (a.Fecha >= DesdeDateTimePicker.Value && a.Fecha <= HastaDateTimePicker.Value);
-                    break;                
+                //case 2://Descripcion
+                //    filtro = a => (a.DesArticulo.Contains(CriterioTextBox.Text)) && (a.Fecha >= DesdeDateTimePicker.Value && a.Fecha <= HastaDateTimePicker.Value);
+                //    break;                
 
             }
             ConsultaDataGridView.DataSource = repositorio.GetList(filtro);

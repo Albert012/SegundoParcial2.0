@@ -54,7 +54,7 @@ namespace SegundoParcial.UI.Registros
             EntradasArticulos articulo = new EntradasArticulos();
             articulo.EntradaId = Convert.ToInt32(EntradaId_numericUpDown.Value);
             articulo.Fecha = FechaDateTimePicker.Value.Date;
-            articulo.Articulo = Articulo_comboBox.Text;
+            articulo.ArticuloId = (int)Articulo_comboBox.SelectedValue;
             articulo.Cantidad = Convert.ToInt32(Cantidad_numericUpDown.Value);
             return articulo;
         }
@@ -63,8 +63,9 @@ namespace SegundoParcial.UI.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             bool paso = false;
-            Repositorio<EntradasArticulos> repositorio = new Repositorio<EntradasArticulos>(new Contexto());
-            EntradasArticulos articulo;
+            //int id = (int)EntradaId_numericUpDown.Value;
+            //epositorio<EntradasArticulos> repositorio = new Repositorio<EntradasArticulos>(new Contexto());
+            EntradasArticulos Entrada;// = BLL.EntradasArticulosBLL.Buscar(id);
 
             if(Validar())
             {
@@ -72,18 +73,19 @@ namespace SegundoParcial.UI.Registros
                 return;
             }
 
-            articulo = LLenaClase();
+            Entrada = LLenaClase();
 
-            if (EntradaId_numericUpDown.Value == 0)            
-                paso = repositorio.Guardar(articulo);  
+            if (EntradaId_numericUpDown.Value == 0)
+            {
+                //Inventario();
+                paso = BLL.EntradasArticulosBLL.Guardar(Entrada);
+            }                
+                         
             else
-                paso = repositorio.Modificar(articulo);
-            
-                
+                paso = BLL.EntradasArticulosBLL.Modificar(Entrada);            
 
             if (paso)
-            {
-                Inventario();
+            {              
                 MessageBox.Show("Guardado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);                
                 NuevoButton.PerformClick();
             }
@@ -96,12 +98,12 @@ namespace SegundoParcial.UI.Registros
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(EntradaId_numericUpDown.Value);
-            Repositorio<EntradasArticulos> repositorio = new Repositorio<EntradasArticulos>(new Contexto());
-            EntradasArticulos articulo = repositorio.Buscar(id);
+            //Repositorio<EntradasArticulos> repositorio = new Repositorio<EntradasArticulos>(new Contexto());
+            EntradasArticulos articulo = BLL.EntradasArticulosBLL.Buscar(id);
 
             if(articulo != null)
             {
-                repositorio.Eliminar(id);
+                BLL.EntradasArticulosBLL.Eliminar(id);
                 MessageBox.Show("Eliminado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 NuevoButton.PerformClick();
             }
@@ -112,13 +114,13 @@ namespace SegundoParcial.UI.Registros
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(EntradaId_numericUpDown.Value);
-            Repositorio<EntradasArticulos> repositorio = new Repositorio<EntradasArticulos>(new Contexto());
-            EntradasArticulos articulo = repositorio.Buscar(id);
+            //Repositorio<EntradasArticulos> repositorio = new Repositorio<EntradasArticulos>(new Contexto());
+            EntradasArticulos articulo = BLL.EntradasArticulosBLL.Buscar(id);
 
             if (articulo != null)
             {
                 FechaDateTimePicker.Value = articulo.Fecha;
-                Articulo_comboBox.Text = articulo.Articulo;
+                Articulo_comboBox.Text = articulo.ArticuloId.ToString();
                 Cantidad_numericUpDown.Value = articulo.Cantidad;
 
             }
@@ -129,9 +131,18 @@ namespace SegundoParcial.UI.Registros
         private void Inventario()
         {
             Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());           
-            Articulos articulo = (Articulos)Articulo_comboBox.SelectedItem;
-            articulo.Inventario += (int)Cantidad_numericUpDown.Value;
+            Articulos articulo = (Articulos)Articulo_comboBox.SelectedItem;            
+            articulo.Inventario += (int)Cantidad_numericUpDown.Value;            
             repositorio.Modificar(articulo);   
+        }
+
+        private void QuitarInventario()
+        {
+            Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());          
+            Articulos articulo = (Articulos)Articulo_comboBox.SelectedItem;
+
+            articulo.Inventario += (int)Cantidad_numericUpDown.Value ;
+            repositorio.Modificar(articulo);
         }
 
 

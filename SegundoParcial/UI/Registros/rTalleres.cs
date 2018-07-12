@@ -52,7 +52,8 @@ namespace SegundoParcial.UI.Registros
         {
             Repositorio<Talleres> repositorio = new Repositorio<Talleres>(new Contexto());
             bool paso = false;
-            Talleres taller;
+            int id = (int)TallerId_numericUpDown.Value;
+            Talleres taller = repositorio.Buscar(id);
 
             if(Validar())
             {
@@ -62,7 +63,7 @@ namespace SegundoParcial.UI.Registros
 
             taller = LlenaClase();
 
-            if (TallerId_numericUpDown.Value == 0)
+            if (taller != null)
                 paso = repositorio.Guardar(taller);            
             else
                 paso = repositorio.Modificar(taller);

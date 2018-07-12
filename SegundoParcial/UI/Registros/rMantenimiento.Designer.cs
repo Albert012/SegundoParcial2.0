@@ -234,6 +234,7 @@
             // 
             // CantidadNumericUpDown
             // 
+            this.CantidadNumericUpDown.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.CantidadNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CantidadNumericUpDown.Location = new System.Drawing.Point(195, 41);
             this.CantidadNumericUpDown.Name = "CantidadNumericUpDown";
@@ -243,6 +244,7 @@
             // 
             // PrecioNumericUpDown
             // 
+            this.PrecioNumericUpDown.BackColor = System.Drawing.Color.Cyan;
             this.PrecioNumericUpDown.Enabled = false;
             this.PrecioNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrecioNumericUpDown.Location = new System.Drawing.Point(293, 41);
@@ -257,6 +259,7 @@
             // 
             // ImporteNumericUpDown
             // 
+            this.ImporteNumericUpDown.BackColor = System.Drawing.Color.Tomato;
             this.ImporteNumericUpDown.Enabled = false;
             this.ImporteNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImporteNumericUpDown.Location = new System.Drawing.Point(427, 41);
@@ -298,6 +301,7 @@
             // 
             // TotalNumericUpDown
             // 
+            this.TotalNumericUpDown.BackColor = System.Drawing.Color.LawnGreen;
             this.TotalNumericUpDown.Enabled = false;
             this.TotalNumericUpDown.Location = new System.Drawing.Point(427, 367);
             this.TotalNumericUpDown.Maximum = new decimal(new int[] {
@@ -322,6 +326,7 @@
             // 
             // ITBISNumericUpDown
             // 
+            this.ITBISNumericUpDown.BackColor = System.Drawing.Color.Gold;
             this.ITBISNumericUpDown.Enabled = false;
             this.ITBISNumericUpDown.Location = new System.Drawing.Point(427, 339);
             this.ITBISNumericUpDown.Maximum = new decimal(new int[] {
@@ -346,6 +351,7 @@
             // 
             // SubTotalNumericUpDown
             // 
+            this.SubTotalNumericUpDown.BackColor = System.Drawing.Color.DarkOrange;
             this.SubTotalNumericUpDown.Enabled = false;
             this.SubTotalNumericUpDown.Location = new System.Drawing.Point(427, 311);
             this.SubTotalNumericUpDown.Maximum = new decimal(new int[] {

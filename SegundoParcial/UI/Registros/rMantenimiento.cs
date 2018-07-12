@@ -78,26 +78,34 @@ namespace SegundoParcial.UI.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            Repositorio<Mantenimiento> repositorio = new Repositorio<Mantenimiento>(new Contexto());
-            Mantenimiento mantenimiento;
+            //Repositorio<Mantenimiento> repositorio = new Repositorio<Mantenimiento>(new Contexto());
+            int id = (int)IdnumericUpDown.Value;
+            Mantenimiento mantenimiento = BLL.MantenimientosBLL.Buscar(id);
             bool paso = false;
 
             if(Validar())
             {
                 MessageBox.Show("Favor Revise Algunos Campos Que Deben Ser LLenados", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
-            }
+            }           
 
             mantenimiento = LlenaClase();
 
-            if (IdnumericUpDown.Value == 0)
-                paso = repositorio.Guardar(mantenimiento);
+            if (mantenimiento  != null)
+            {
+                paso = BLL.MantenimientosBLL.Guardar(mantenimiento);
+               
+            }               
             else
-                paso = repositorio.Modificar(mantenimiento);
+            {
+                paso = BLL.MantenimientosBLL.Modificar(mantenimiento);                
+                    
+            }
+                
 
             if (paso)
             {                
-                AddTotalMantenimiento();
+                //AddTotalMantenimiento();
                 MessageBox.Show("Guardado Correctamente!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 NuevoButton.PerformClick();
             }
@@ -108,12 +116,13 @@ namespace SegundoParcial.UI.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            Repositorio<Mantenimiento> repositorio = new Repositorio<Mantenimiento>(new Contexto());
+            //Repositorio<Mantenimiento> repositorio = new Repositorio<Mantenimiento>(new Contexto());
             int id = (int)IdnumericUpDown.Value;
+            Mantenimiento mantenimiento = BLL.MantenimientosBLL.Buscar(id);
             
-            if (repositorio.Eliminar(id))
+            if (mantenimiento != null)
             {
-                
+                BLL.MantenimientosBLL.Eliminar(id);
                 MessageBox.Show("Eliminado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 NuevoButton.PerformClick();
             }
@@ -124,9 +133,9 @@ namespace SegundoParcial.UI.Registros
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Repositorio<Mantenimiento> repositorio = new Repositorio<Mantenimiento>(new Contexto());
+            //Repositorio<Mantenimiento> repositorio = new Repositorio<Mantenimiento>(new Contexto());
             int id = (int)IdnumericUpDown.Value;
-            Mantenimiento mantenimiento = repositorio.Buscar(id);
+            Mantenimiento mantenimiento = BLL.MantenimientosBLL.Buscar(id);
 
             if (mantenimiento != null)
             {
@@ -136,11 +145,40 @@ namespace SegundoParcial.UI.Registros
                 MessageBox.Show("No Hay Resultados", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private bool Exitencia()
+        {
+            bool Exitencia = false;
+
+            Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
+            Articulos articulo = (Articulos)ArticuloComboBox.SelectedItem;
+            
+            if((int)CantidadNumericUpDown.Value > articulo.Inventario)
+            {
+                ValidarErrorProvider.SetError(CantidadNumericUpDown, "De Este Articulo Quedan "+ articulo.Inventario +" Esta Falta de Inventario");
+                Exitencia = true;
+            }
+            return Exitencia;            
+        }
+
         private void AgregarButton_Click(object sender, EventArgs e)
         {
             List<MantenimientosDetalle> detalle = new List<MantenimientosDetalle>();
+            Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
+            Articulos articulo = (Articulos)ArticuloComboBox.SelectedItem;
 
-            if(DetalleDataGridView.DataSource != null)
+            if (CantidadNumericUpDown.Value == 0)
+            {
+                ValidarErrorProvider.SetError(CantidadNumericUpDown, "Digite una cantidad");
+                return;
+            }
+            if(Exitencia())
+            {
+                MessageBox.Show("No Quedan Suficientes Articulos", "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if (DetalleDataGridView.DataSource != null)
             {
                 detalle = (List<MantenimientosDetalle>)DetalleDataGridView.DataSource;
             }
@@ -155,7 +193,6 @@ namespace SegundoParcial.UI.Registros
                 precio: (int)PrecioNumericUpDown.Value,
                 importe: (int)ImporteNumericUpDown.Value,
                 total: (int)TotalNumericUpDown.Value
-                
                 ));
 
             DetalleDataGridView.DataSource = null;
@@ -163,7 +200,7 @@ namespace SegundoParcial.UI.Registros
             SubTotal();
             ITBIS();
             Total();
-            QuitarInventario();            
+            //QuitarInventario();            
             CantidadNumericUpDown.Value = 0;
 
         }
@@ -175,16 +212,31 @@ namespace SegundoParcial.UI.Registros
                 List<MantenimientosDetalle> detail = (List<MantenimientosDetalle>)DetalleDataGridView.DataSource;
 
                 detail.RemoveAt(DetalleDataGridView.CurrentRow.Index);
-                
+                Remover();
                 DetalleDataGridView.DataSource = null;
-                QuitarInventario();
-                QuitarTotalMantenimienot();
+                //QuitarInventario();
+                //QuitarTotalMantenimienot();
                 DetalleDataGridView.DataSource = detail;
 
             }
 
         }
-        
+
+        private void Remover()
+        {
+            List<MantenimientosDetalle> list = (List<MantenimientosDetalle>)DetalleDataGridView.DataSource;
+            decimal importe =0 ;
+            foreach (var item in list)
+            {
+                importe -= item.Importe;
+
+            }
+            importe *= (-1);
+            SubTotalNumericUpDown.Value = BLL.CalculosBLL.CalcularSubTotal(importe);
+            ITBISNumericUpDown.Value = BLL.CalculosBLL.CalcularItbis(SubTotalNumericUpDown.Value);
+            TotalNumericUpDown.Value = BLL.CalculosBLL.CalcularTotal(SubTotalNumericUpDown.Value, ITBISNumericUpDown.Value);
+        }   
+                
         private void Meses()
         {
             ProximoDateTimePicker.Value = FechaDateTimePicker.Value.AddMonths(3);
@@ -247,8 +299,7 @@ namespace SegundoParcial.UI.Registros
                     ToInt(item.Cells["ArticuloId"].Value),
                     ToInt(item.Cells["Cantidad"].Value),
                     ToInt(item.Cells["Precio"].Value),
-                    ToInt(item.Cells["Importe"].Value),
-                    ToInt(item.Cells["Total"].Value)
+                    ToInt(item.Cells["Importe"].Value)
                     );
             }
             return mantenimiento;
