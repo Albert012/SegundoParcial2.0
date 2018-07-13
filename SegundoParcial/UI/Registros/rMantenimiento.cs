@@ -3,11 +3,6 @@ using SegundoParcial.DAL;
 using SegundoParcial.Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SegundoParcial.UI.Registros
@@ -264,6 +259,32 @@ namespace SegundoParcial.UI.Registros
         private bool Validar()
         {
             bool Validar = false;
+
+            if(string.IsNullOrWhiteSpace(VehiculoComboBox.Text))
+            {
+                ValidarErrorProvider.SetError(VehiculoComboBox, "Debe Registrar Vehiculos");
+                Validar = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(TallerComboBox.Text))
+            {
+                ValidarErrorProvider.SetError(TallerComboBox, "Debe Registrar Talleres");
+                Validar = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(ArticuloComboBox.Text))
+            {
+                ValidarErrorProvider.SetError(ArticuloComboBox, "Debe Registrar Articulos");
+                Validar = true;
+            }
+
+
+            if (CantidadNumericUpDown.Value == 0)
+            {
+                ValidarErrorProvider.SetError(CantidadNumericUpDown, "Digite Una Cantidad");
+                Validar = true;
+            }
+
             if(DetalleDataGridView.RowCount == 0)
             {
                 ValidarErrorProvider.SetError(DetalleDataGridView, "No Hay Datos Para Mostrar");
