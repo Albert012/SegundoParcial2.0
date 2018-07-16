@@ -20,9 +20,12 @@ namespace SegundoParcial.BLL
             {
                 if (contexto.Entradas.Add(entrada) != null)
                 {
-                    Articulos articulos = BLL.ArticulosBLL.Buscar(entrada.ArticuloId);
-                    articulos.Inventario += entrada.Cantidad;
-                    BLL.ArticulosBLL.Modificar(articulos);
+                    //Articulos articulos = BLL.ArticulosBLL.Buscar(entrada.ArticuloId);
+                    //articulos.Inventario += entrada.Cantidad;
+                    //BLL.ArticulosBLL.Modificar(articulos);
+
+                    var Articulo = contexto.Articulos.Find(entrada.ArticuloId);
+                    Articulo.Inventario += entrada.Cantidad;
 
                     contexto.SaveChanges();
                     paso = true;
@@ -43,17 +46,24 @@ namespace SegundoParcial.BLL
         {
             bool paso = false;            
             Contexto contexto = new Contexto();
-            EntradasArticulos EntradaAnt = BLL.EntradasArticulosBLL.Buscar(entrada.EntradaId);
-            int dif;
-            dif = entrada.Cantidad - EntradaAnt.Cantidad;
+            
+            //Articulos articulos = BLL.ArticulosBLL.Buscar(entrada.ArticuloId);
+            //articulos.Inventario += dif;
+            //BLL.ArticulosBLL.Modificar(articulos);
 
-            Articulos articulos = BLL.ArticulosBLL.Buscar(entrada.ArticuloId);
-            articulos.Inventario += dif;
-            BLL.ArticulosBLL.Modificar(articulos);
+
 
             try
             {
+                EntradasArticulos EntradaAnt = BLL.EntradasArticulosBLL.Buscar(entrada.EntradaId);
+                int dif;
+                dif = entrada.Cantidad - EntradaAnt.Cantidad;
+
                 contexto.Entry(entrada).State = EntityState.Modified;
+
+                var Articulo = contexto.Articulos.Find(entrada.ArticuloId);
+                Articulo.Inventario += dif;
+
                 if (contexto.SaveChanges() > 0)
                 {   
                     paso = true;
@@ -78,9 +88,12 @@ namespace SegundoParcial.BLL
             try
             {
                 EntradasArticulos entrada = contexto.Entradas.Find(id);
-                Articulos articulos = BLL.ArticulosBLL.Buscar(entrada.ArticuloId);
-                articulos.Inventario -= entrada.Cantidad;
-                BLL.ArticulosBLL.Modificar(articulos);
+                //Articulos articulos = BLL.ArticulosBLL.Buscar(entrada.ArticuloId);
+                //articulos.Inventario -= entrada.Cantidad;
+                //BLL.ArticulosBLL.Modificar(articulos);
+
+                var Articulo = contexto.Articulos.Find(entrada.ArticuloId);
+                Articulo.Inventario -= entrada.Cantidad;
 
                 contexto.Entradas.Remove(entrada);
 

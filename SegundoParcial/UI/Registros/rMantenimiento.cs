@@ -276,14 +276,7 @@ namespace SegundoParcial.UI.Registros
             {
                 ValidarErrorProvider.SetError(ArticuloComboBox, "Debe Registrar Articulos");
                 Validar = true;
-            }
-
-
-            if (CantidadNumericUpDown.Value == 0)
-            {
-                ValidarErrorProvider.SetError(CantidadNumericUpDown, "Digite Una Cantidad");
-                Validar = true;
-            }
+            }            
 
             if(DetalleDataGridView.RowCount == 0)
             {

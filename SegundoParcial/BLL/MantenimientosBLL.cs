@@ -50,10 +50,11 @@ namespace SegundoParcial.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
-
+            
             try
             {
                 var MantAnt = MantenimientosBLL.Buscar(mantenimiento.MantenimientoId);
+
                 foreach (var item in MantAnt.Detalle)
                 {
                     contexto.Articulos.Find(item.ArticuloId).Inventario += item.Cantidad;
@@ -88,13 +89,22 @@ namespace SegundoParcial.BLL
                 foreach (var item in mantenimiento.Detalle)
                 {
                     contexto.Vehiculos.Find(item.VehiculoId).Mantenimiento -= (int)item.Total;
+                    //var Vehiculo = contexto.Vehiculos.Find(item.VehiculoId).Mantenimiento -= item.Cantidad;
+                    
+
                     var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
                     contexto.Entry(item).State = estado;
                 }
 
+                decimal dif;
+                dif = mantenimiento.Total - MantAnt.Total;
+
                 contexto.Entry(mantenimiento).State = EntityState.Modified;
 
-                if(contexto.SaveChanges() > 0)
+                var Vehiculo = contexto.Mantenimiento.Find(mantenimiento.VehiculoId);
+                Vehiculo.Total += dif;
+
+                if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
                 }

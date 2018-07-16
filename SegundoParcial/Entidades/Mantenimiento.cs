@@ -10,6 +10,7 @@ namespace SegundoParcial.Entidades
     {
         [Key]
         public int MantenimientoId { get; set; }
+        public int VehiculoId { get; set; }
         public DateTime Fecha { get; set; }
         public Decimal SubTotal { get; set; }
         public Decimal Itbis { get; set; }
